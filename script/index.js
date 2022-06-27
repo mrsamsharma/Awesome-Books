@@ -26,7 +26,7 @@ class Book {
   removeBtn.className = 'remove-btn'
   removeBtn.textContent = 'Remove';
   removeBtn.addEventListener('click', (e) => {
-    bookArr = bookArr.filter((each) => parseInt(e.target.parentElement.id) !== each.id);
+    bookArr = bookArr.filter((each) => e.target.parentElement.id !== each.id);
     localStorage.setItem('books', JSON.stringify(bookArr));
     e.target.parentElement.remove();
   });
@@ -38,7 +38,7 @@ class Book {
 }
 
 addBtn.addEventListener('click', () => {
-  const bookItem = new Book(bookArr.length, titleInput.value, authorInput.value);
+  const bookItem = new Book(titleInput.value.replaceAll(' ','').toLowerCase() + authorInput.value.replaceAll(' ','').toLowerCase(), titleInput.value, authorInput.value);
   bookItem.add();
   bookArr.push(bookItem);
   localStorage.setItem('books', JSON.stringify(bookArr));
@@ -47,7 +47,7 @@ addBtn.addEventListener('click', () => {
 if ('books' in localStorage) {
   bookArr = JSON.parse(localStorage.books);
   bookArr.forEach((each) => {
-  const newData = new Book(bookArr.length, each.title, each.author);
+  const newData = new Book(each.title.replaceAll(' ','').toLowerCase() + each.author.replaceAll(' ','').toLowerCase(), each.title, each.author);
   newData.add();
   });
 }
