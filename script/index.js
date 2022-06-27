@@ -4,8 +4,7 @@ const addBtn = document.querySelector('.add-input');
 let bookArr = [];
 
 class Book {
-  constructor(id, title, author) {
-    this.id = id;
+  constructor(title, author) {
     this.title = title;
     this.author = author;
   }
@@ -26,7 +25,7 @@ class Book {
     removeBtn.className = 'remove-btn';
     removeBtn.textContent = 'Remove';
     removeBtn.addEventListener('click', (e) => {
-      bookArr = bookArr.filter((each) => e.target.parentElement.id !== each.id);
+      bookArr.splice(this.index, 1);
       localStorage.setItem('books', JSON.stringify(bookArr));
       e.target.parentElement.remove();
     });
@@ -38,7 +37,7 @@ class Book {
 }
 
 addBtn.addEventListener('click', () => {
-  const bookItem = new Book(titleInput.value.replaceAll(' ', '').toLowerCase() + authorInput.value.replaceAll(' ', '').toLowerCase(), titleInput.value, authorInput.value);
+  const bookItem = new Book(titleInput.value, authorInput.value);
   bookItem.add();
   bookArr.push(bookItem);
   localStorage.setItem('books', JSON.stringify(bookArr));
