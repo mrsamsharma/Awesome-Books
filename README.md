@@ -22,21 +22,12 @@ To get a local copy up and running follow these simple example steps.
 follow>>>>>>>>>
 
 
-### Setup
+## To make a copy
 
-to use the project please follow :
-
- >Open GitHub and go to my GitHub repository name: Capstone-Project-I .to clone.
-
- >Click “Code” and copy the given URL.
-
- >Open “Git Bash” and change the current working directory to the location where you want the cloned directory.
-
- >Type git clone in the terminal, paste the URL you copied earlier, and press “enter” to create your local clone.
-
- >Syntax:
-
-  $ git clone {repository URL}
+Run:
+```
+git clone git@github.com:samWfelice/Awesome-Books.git
+```
 
 ### Usage
 this website can be used for commercial reasons or marketing.
