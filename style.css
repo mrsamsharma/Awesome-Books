@@ -1,0 +1,21 @@
+.book {
+  display: flex;
+  flex-direction: column;
+}
+
+.book hr {
+  width: 100%;
+}
+
+.remove-btn {
+  align-self: flex-start;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form input {
+  align-self: flex-start;
+}
