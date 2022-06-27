@@ -10,6 +10,9 @@
 - following linters standards.
 - following github flows standards.
 
+## Live Demo
+
+[Live Demo Link]https://samwfelice.github.io/Awesome-Books/)
 
 ## Getting Started
 
@@ -41,11 +44,14 @@ this website can be used for commercial reasons or marketing.
 ## Authors
 
 👤 **Esi Ogagaogene**
-👤 **Satyam Sharma**
-
-
 - GitHub: (https://github.com/ogagaoghene)
 - Twitter: [@esi_ogaga](https://twitter.com/@esi_ogagaoghene)
+
+👤 **Satyam Sharma**
+
+- GitHub: [@samWfelcie](https://github.com/samWfelice)
+- Twitter: [@samwfelice](https://twitter.com/samwfelice)
+- LinkedIn: [samfelice](https://www.linkedin.com/in/samfelice)
 
 ## 🤝 credit
 
