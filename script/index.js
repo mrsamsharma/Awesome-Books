@@ -4,7 +4,8 @@ const addBtn = document.querySelector('.add-input');
 let bookArr = [];
 
 class Book {
-  constructor(title, author) {
+  constructor(id, title, author) {
+    this.id = id;
     this.title = title;
     this.author = author;
   }
@@ -25,19 +26,23 @@ class Book {
     removeBtn.className = 'remove-btn';
     removeBtn.textContent = 'Remove';
     removeBtn.addEventListener('click', (e) => {
-      bookArr.splice(this.index, 1);
-      localStorage.setItem('books', JSON.stringify(bookArr));
-      e.target.parentElement.remove();
+      Book.remove(e);
     });
     book.appendChild(removeBtn);
-    const separator = document.createElement('hr');
-    book.appendChild(separator);
     document.querySelector('.books-container').appendChild(book);
+  }
+
+  static remove(e) {
+    bookArr = bookArr.filter((each) => e.target.parentElement.id !== each.id);
+    localStorage.setItem('books', JSON.stringify(bookArr));
+    e.target.parentElement.remove();
   }
 }
 
 addBtn.addEventListener('click', () => {
-  const bookItem = new Book(titleInput.value, authorInput.value);
+  /* eslint-disable */
+  const bookItem = new Book(authorInput.value + bookArr.length, '\"' + titleInput.value + '\"', ' by ' + authorInput.value);
+  /* eslint-enable */
   bookItem.add();
   bookArr.push(bookItem);
   localStorage.setItem('books', JSON.stringify(bookArr));
@@ -46,7 +51,7 @@ addBtn.addEventListener('click', () => {
 if ('books' in localStorage) {
   bookArr = JSON.parse(localStorage.books);
   bookArr.forEach((each) => {
-    const newData = new Book(each.title.replaceAll(' ', '').toLowerCase() + each.author.replaceAll(' ', '').toLowerCase(), each.title, each.author);
+    const newData = new Book(each.id, each.title, each.author);
     newData.add();
   });
 }
