@@ -12,7 +12,6 @@ class Book {
   add() {
     const book = document.createElement('div');
     book.className = 'book';
-    book.setAttribute('id', this.id);
     const title = document.createElement('span');
     title.className = 'title';
     title.textContent = this.title;
@@ -30,14 +29,12 @@ class Book {
       e.target.parentElement.remove();
     });
     book.appendChild(removeBtn);
-    const separator = document.createElement('hr');
-    book.appendChild(separator);
     document.querySelector('.books-container').appendChild(book);
   }
 }
 
 addBtn.addEventListener('click', () => {
-  const bookItem = new Book(titleInput.value, authorInput.value);
+  const bookItem = new Book('\"' + titleInput.value + '\"', ' by ' + authorInput.value);
   bookItem.add();
   bookArr.push(bookItem);
   localStorage.setItem('books', JSON.stringify(bookArr));
@@ -46,7 +43,7 @@ addBtn.addEventListener('click', () => {
 if ('books' in localStorage) {
   bookArr = JSON.parse(localStorage.books);
   bookArr.forEach((each) => {
-    const newData = new Book(each.title.replaceAll(' ', '').toLowerCase() + each.author.replaceAll(' ', '').toLowerCase(), each.title, each.author);
+    const newData = new Book(each.title,  each.author);
     newData.add();
   });
 }

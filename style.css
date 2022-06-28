@@ -1,6 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  text-align: center;
+}
+
+.books-container {
+  border: 2px solid #000;
+  margin: 1em;
+}
+
 .book {
-  display: flex;
-  flex-direction: column;
+  padding: 1em 2em 1em 3em;
+}
+
+.book:nth-child(odd) {
+  background-color: rgb(134, 134, 134);
+}
+
+.book:nth-child(even) {
+  background-color: rgb(170, 170, 170);
 }
 
 .book hr {
@@ -8,14 +30,35 @@
 }
 
 .remove-btn {
-  align-self: flex-start;
+  float: right;
+  text-align: center;
+
+}
+
+.separator {
+  width: 50px;
+  margin: 0 auto;
 }
 
 .form {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  gap: 1em;
+  margin-top: 2em;
 }
 
 .form input {
-  align-self: flex-start;
+
+}
+
+.form-container {
+  border: 1px solid black;
+  width: 10%;
+  margin: 0 auto;
+}
+
+.add-input {
+  align-self: flex-end;
+  margin-right: 10px;
 }
