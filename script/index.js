@@ -26,13 +26,13 @@ class Book {
     removeBtn.className = 'remove-btn';
     removeBtn.textContent = 'Remove';
     removeBtn.addEventListener('click', (e) => {
-      this.remove(e);
+      Book.remove(e);
     });
     book.appendChild(removeBtn);
     document.querySelector('.books-container').appendChild(book);
   }
 
-  remove(e) {
+  static remove(e) {
     bookArr = bookArr.filter((each) => e.target.parentElement.id !== each.id);
     localStorage.setItem('books', JSON.stringify(bookArr));
     e.target.parentElement.remove();
