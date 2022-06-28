@@ -34,7 +34,9 @@ class Book {
 }
 
 addBtn.addEventListener('click', () => {
+  /* eslint-disable */
   const bookItem = new Book('\"' + titleInput.value + '\"', ' by ' + authorInput.value);
+  /* eslint-enable */
   bookItem.add();
   bookArr.push(bookItem);
   localStorage.setItem('books', JSON.stringify(bookArr));
@@ -43,7 +45,7 @@ addBtn.addEventListener('click', () => {
 if ('books' in localStorage) {
   bookArr = JSON.parse(localStorage.books);
   bookArr.forEach((each) => {
-    const newData = new Book(each.title,  each.author);
+    const newData = new Book(each.title, each.author);
     newData.add();
   });
 }
