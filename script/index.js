@@ -3,7 +3,7 @@ const authorInput = document.querySelector('.author-input');
 const addBtn = document.querySelector('.add-input');
 const listBtn = document.querySelector('.list-btn');
 const bookAddBtn = document.querySelector('.add-btn');
-const contactBtn = document.querySelector('.contact-btn')
+const contactBtn = document.querySelector('.contact-btn');
 let bookArr = [];
 
 class Book {
@@ -47,9 +47,9 @@ addBtn.addEventListener('click', () => {
   /* eslint-disable */
   const bookItem = new Book(authorInput.value + bookArr.length, '\"' + titleInput.value + '\"', ' by ' + authorInput.value);
   /* eslint-enable */
-  bookItem.add();
-  bookArr.push(bookItem);
-  localStorage.setItem('books', JSON.stringify(bookArr));
+    bookItem.add();
+    bookArr.push(bookItem);
+    localStorage.setItem('books', JSON.stringify(bookArr));
   }
 });
 
@@ -82,9 +82,10 @@ contactBtn.addEventListener('click', (e) => {
   document.querySelector('.add-book').style.display = 'none';
 });
 
-const monthNames = ["January", "February", "March", "April", "May", "June",
-  "July", "August", "September", "October", "November", "December"];
+const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
+  'July', 'August', 'September', 'October', 'November', 'December'];
+
 const today = new Date();
-const date = monthNames[today.getMonth()]+' '+today.getDate()+' '+today.getFullYear();
-const time = today.getHours() + ":" + today.getMinutes();
-document.querySelector('.time').textContent = date + ' ' + time;
+const date = `${monthNames[today.getMonth()]} ${today.getDate()} ${today.getFullYear()}`;
+const time = `${today.getHours()}:${today.getMinutes()}`;
+document.querySelector('.time').textContent = `${date} ${time}`;
