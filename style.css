@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+}
+
 h1 {
   font-size: 28px;
   text-align: center;
@@ -171,6 +176,7 @@ footer {
 footer span {
   color: #000;
   font-size: 18px;
+  font-style: italic;
 }
 
 .contact {
@@ -190,4 +196,11 @@ footer span {
 
 .add-book {
   display: none;
+}
+
+.time {
+  font-size: 18px;
+  font-weight: bold ;
+  align-self: flex-end;
+  margin-right: 25px;
 }

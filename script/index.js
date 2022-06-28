@@ -81,3 +81,10 @@ contactBtn.addEventListener('click', (e) => {
   document.querySelector('.books').style.display = 'none';
   document.querySelector('.add-book').style.display = 'none';
 });
+
+const monthNames = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"];
+const today = new Date();
+const date = monthNames[today.getMonth()]+' '+today.getDate()+' '+today.getFullYear();
+const time = today.getHours() + ":" + today.getMinutes();
+document.querySelector('.time').textContent = date + ' ' + time;
